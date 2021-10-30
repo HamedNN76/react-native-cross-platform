@@ -1,0 +1,103 @@
+{
+  "name": "rncrossplatform",
+  "version": "0.0.1",
+  "private": true,
+  "main": "public/electron.js",
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "metro": "react-native start",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "desktop_start": "electron-forge start",
+    "web-start": "react-scripts start",
+    "web:build": "react-scripts build",
+    "eject": "react-scripts eject",
+    "desktop-dev": "concurrently -k \"BROWSER=none npm desktop_start\" \"npm:electron\"",
+    "electron": "wait-on tcp:3000 && electron .",
+    "desktop-package": "electron-forge package",
+    "desktop-build": "electron-forge make"
+  },
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0",
+    "react": "17.0.2",
+    "react-dom": "^17.0.2",
+    "react-native": "0.66.1",
+    "react-native-web": "^0.17.5",
+    "react-scripts": "4.0.3",
+    "web-vitals": "^1.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/runtime": "^7.12.5",
+    "@electron-forge/cli": "^6.0.0-beta.61",
+    "@electron-forge/maker-deb": "^6.0.0-beta.61",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.61",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.61",
+    "@electron-forge/maker-zip": "^6.0.0-beta.61",
+    "@react-native-community/eslint-config": "^2.0.0",
+    "@types/jest": "^26.0.23",
+    "@types/react-native": "^0.65.0",
+    "@types/react-test-renderer": "^17.0.1",
+    "concurrently": "^6.3.0",
+    "electron": "^15.3.0",
+    "electron-is-dev": "^2.0.0",
+    "eslint": "^7.14.0",
+    "metro-react-native-babel-preset": "^0.66.2",
+    "react-test-renderer": "17.0.2",
+    "typescript": "^3.8.3",
+    "wait-on": "^6.0.0"
+  },
+  "resolutions": {
+    "@types/react": "^17"
+  },
+  "jest": {
+    "preset": "react-native",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "electron_pilot_trading"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
+  }
+}
