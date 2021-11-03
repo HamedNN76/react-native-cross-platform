@@ -1,6 +1,6 @@
 {
   "name": "rncrossplatform",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "private": true,
   "main": "public/electron.js",
   "scripts": {
@@ -12,7 +12,7 @@
     "web-start": "react-scripts start",
     "web:build": "react-scripts build",
     "eject": "react-scripts eject",
-    "desktop-dev": "concurrently -k \"BROWSER=none npm desktop_start\" \"npm:electron\"",
+    "desktop-dev": "concurrently -k \"BROWSER=none npm run desktop_start\" \"npm:electron\"",
     "electron": "wait-on tcp:3000 && electron .",
     "desktop-package": "electron-forge package",
     "desktop-build": "electron-forge make"
